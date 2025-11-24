@@ -1,0 +1,27 @@
+# macOS system files
+.DS_Store
+
+# Checkpoints / model weights
+checkpoints/
+*.ckpt
+*.pth
+*.pt
+*.model
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# TensorBoard logs
+runs/
+events.out.tfevents.*
+
+# Logs
+*.log
+
+# Data files
+*.csv
+*.tsv
+*.npy
+*.npz
+*.h5
+*.hdf5
