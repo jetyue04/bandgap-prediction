@@ -1,0 +1,118 @@
+BANDGAP PREDICTION - SELECTED FEATURES
+==================================================
+Total: 36 features
+
+ 1. A_atomic_mass
+ 2. A_boiling_point
+ 3. A_electron_affinity
+ 4. A_electronegativity
+ 5. A_first_ionization_energy
+ 6. A_melting_point
+ 7. A_second_ionization_energy
+ 8. A_thermal_conductivity
+ 9. A_third_ionization_energy
+10. A_van_der_waals_radius
+11. B1_atomic_mass
+12. B1_boiling_point
+13. B1_electron_affinity
+14. B1_electronegativity
+15. B1_first_ionization_energy
+16. B1_ionic_radius
+17. B1_melting_point
+18. B1_second_ionization_energy
+19. B1_thermal_conductivity
+20. B1_third_ionization_energy
+21. B1_van_der_waals_radius
+22. B2_atomic_mass
+23. B2_electron_affinity
+24. B2_electronegativity
+25. B2_first_ionization_energy
+26. B2_ionic_radius
+27. B2_melting_point
+28. B2_thermal_conductivity
+29. B2_third_ionization_energy
+30. B2_van_der_waals_radius
+31. X_atomic_number
+32. X_electron_affinity
+33. X_electronegativity
+34. X_thermal_conductivity
+35. X_third_ionization_energy
+36. tolerance_factor
+
+
+FORMATION ENERGY PREDICTION - SELECTED FEATURES
+==================================================
+Total: 37 features
+
+ 1. A_atomic_number
+ 2. A_boiling_point
+ 3. A_electron_affinity
+ 4. A_electronegativity
+ 5. A_first_ionization_energy
+ 6. A_melting_point
+ 7. A_second_ionization_energy
+ 8. A_thermal_conductivity
+ 9. A_third_ionization_energy
+10. A_van_der_waals_radius
+11. B1_atomic_number
+12. B1_boiling_point
+13. B1_electron_affinity
+14. B1_electronegativity
+15. B1_first_ionization_energy
+16. B1_melting_point
+17. B1_second_ionization_energy
+18. B1_thermal_conductivity
+19. B1_third_ionization_energy
+20. B1_van_der_waals_radius
+21. B2_atomic_mass
+22. B2_boiling_point
+23. B2_electron_affinity
+24. B2_electronegativity
+25. B2_first_ionization_energy
+26. B2_ionic_radius
+27. B2_thermal_conductivity
+28. B2_third_ionization_energy
+29. B2_van_der_waals_radius
+30. X_atomic_mass
+31. X_electron_affinity
+32. X_electronegativity
+33. X_second_ionization_energy
+34. X_thermal_conductivity
+35. X_third_ionization_energy
+36. octahedral_factor
+37. tolerance_factor
+
+
+REMOVED FEATURES (Bandgap)
+==================================================
+  A_ionic_radius (corr=0.922 with A_van_der_waals_radius)
+  octahedral_factor (corr=0.975 with B1_ionic_radius)
+  X_second_ionization_energy (corr=0.982 with X_ionic_radius)
+  X_melting_point (corr=0.959 with X_ionic_radius)
+  X_boiling_point (corr=0.925 with X_ionic_radius)
+  X_ionic_radius (corr=0.999 with X_van_der_waals_radius)
+  X_first_ionization_energy (corr=0.962 with X_electronegativity)
+  A_atomic_number (corr=0.999 with A_atomic_mass)
+  B1_atomic_number (corr=0.999 with B1_atomic_mass)
+  B2_atomic_number (corr=0.999 with B2_atomic_mass)
+  X_atomic_mass (corr=0.998 with X_atomic_number)
+  B2_second_ionization_energy (corr=0.930 with B2_third_ionization_energy)
+  B2_boiling_point (corr=0.933 with B2_melting_point)
+  X_van_der_waals_radius (corr=0.970 with X_third_ionization_energy)
+
+
+REMOVED FEATURES (Formation Energy)
+==================================================
+  A_ionic_radius (corr=0.922 with A_van_der_waals_radius)
+  B1_ionic_radius (corr=0.975 with octahedral_factor)
+  X_ionic_radius (corr=0.982 with X_second_ionization_energy)
+  X_first_ionization_energy (corr=0.962 with X_electronegativity)
+  A_atomic_mass (corr=0.999 with A_atomic_number)
+  B1_atomic_mass (corr=0.999 with B1_atomic_number)
+  B2_atomic_number (corr=0.999 with B2_atomic_mass)
+  X_atomic_number (corr=0.998 with X_atomic_mass)
+  X_melting_point (corr=0.909 with X_atomic_mass)
+  B2_second_ionization_energy (corr=0.930 with B2_third_ionization_energy)
+  X_boiling_point (corr=0.925 with X_second_ionization_energy)
+  X_van_der_waals_radius (corr=0.973 with X_second_ionization_energy)
+  B2_melting_point (corr=0.933 with B2_boiling_point)
