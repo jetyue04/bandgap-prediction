@@ -1,0 +1,96 @@
+--------------------------------------------------------------------------------
+SHAP Analysis Report - Bandgap Prediction
+--------------------------------------------------------------------------------
+
+DATASET INFO
+--------------------------------------------------------------------------------
+Total samples: 1053
+Features: 36 (after Pearson+mRMR selection)
+Training: 760 samples
+Validation: 135 samples
+Test: 158 samples
+
+MODEL PERFORMANCE
+--------------------------------------------------------------------------------
+Training   - R²: 0.9990, MAE: 0.0369 eV
+Validation - R²: 0.8183, MAE: 0.4896 eV
+Test       - R²: 0.8314, MAE: 0.4997 eV, RMSE: 0.8017 eV
+
+FEATURE IMPORTANCE (Mean |SHAP| values)
+--------------------------------------------------------------------------------
+                    Feature  Mean_|SHAP|
+ A_second_ionization_energy     0.382732
+ B2_third_ionization_energy     0.262326
+ B2_first_ionization_energy     0.194713
+             B2_atomic_mass     0.167086
+           B2_melting_point     0.123329
+            A_boiling_point     0.106629
+       B1_electronegativity     0.100638
+ B1_first_ionization_energy     0.090044
+             B1_atomic_mass     0.088433
+        X_electron_affinity     0.087872
+    B2_van_der_waals_radius     0.083003
+ B1_third_ionization_energy     0.081151
+B1_second_ionization_energy     0.079719
+           B1_boiling_point     0.078849
+       B2_electronegativity     0.076161
+       B2_electron_affinity     0.073561
+            X_atomic_number     0.073447
+            A_melting_point     0.069784
+       B1_electron_affinity     0.054371
+  A_third_ionization_energy     0.052954
+           B1_melting_point     0.051573
+    B2_thermal_conductivity     0.045010
+            B2_ionic_radius     0.043109
+           tolerance_factor     0.043012
+        X_electronegativity     0.039509
+    B1_thermal_conductivity     0.029269
+     A_thermal_conductivity     0.029168
+    B1_van_der_waals_radius     0.021187
+              A_atomic_mass     0.019983
+            B1_ionic_radius     0.018786
+        A_electronegativity     0.012984
+        A_electron_affinity     0.011158
+  X_third_ionization_energy     0.008748
+  A_first_ionization_energy     0.005278
+     A_van_der_waals_radius     0.003363
+     X_thermal_conductivity     0.000548
+
+FEATURE EFFECTS ON BANDGAP
+--------------------------------------------------------------------------------
+A_atomic_mass                            NEGATIVE   (mean SHAP: -0.001365)
+A_boiling_point                          NEGATIVE   (mean SHAP: -0.005190)
+A_electron_affinity                      POSITIVE   (mean SHAP: +0.002091)
+A_electronegativity                      NEGATIVE   (mean SHAP: -0.002730)
+A_first_ionization_energy                NEGATIVE   (mean SHAP: -0.000671)
+A_melting_point                          POSITIVE   (mean SHAP: +0.005301)
+A_second_ionization_energy               POSITIVE   (mean SHAP: +0.025809)
+A_thermal_conductivity                   NEGATIVE   (mean SHAP: -0.000529)
+A_third_ionization_energy                NEGATIVE   (mean SHAP: -0.000279)
+A_van_der_waals_radius                   NEGATIVE   (mean SHAP: -0.000363)
+B1_atomic_mass                           NEGATIVE   (mean SHAP: -0.010925)
+B1_boiling_point                         NEGATIVE   (mean SHAP: -0.005805)
+B1_electron_affinity                     NEGATIVE   (mean SHAP: -0.005513)
+B1_electronegativity                     POSITIVE   (mean SHAP: +0.006693)
+B1_first_ionization_energy               NEGATIVE   (mean SHAP: -0.013849)
+B1_ionic_radius                          NEGATIVE   (mean SHAP: -0.004509)
+B1_melting_point                         POSITIVE   (mean SHAP: +0.002907)
+B1_second_ionization_energy              POSITIVE   (mean SHAP: +0.009030)
+B1_thermal_conductivity                  POSITIVE   (mean SHAP: +0.006428)
+B1_third_ionization_energy               POSITIVE   (mean SHAP: +0.012670)
+B1_van_der_waals_radius                  NEGATIVE   (mean SHAP: -0.004509)
+B2_atomic_mass                           POSITIVE   (mean SHAP: +0.000474)
+B2_electron_affinity                     NEGATIVE   (mean SHAP: -0.032395)
+B2_electronegativity                     NEGATIVE   (mean SHAP: -0.024288)
+B2_first_ionization_energy               NEGATIVE   (mean SHAP: -0.039587)
+B2_ionic_radius                          NEGATIVE   (mean SHAP: -0.002473)
+B2_melting_point                         POSITIVE   (mean SHAP: +0.004026)
+B2_thermal_conductivity                  NEGATIVE   (mean SHAP: -0.004779)
+B2_third_ionization_energy               POSITIVE   (mean SHAP: +0.046284)
+B2_van_der_waals_radius                  NEGATIVE   (mean SHAP: -0.006369)
+X_atomic_number                          POSITIVE   (mean SHAP: +0.024654)
+X_electron_affinity                      POSITIVE   (mean SHAP: +0.017138)
+X_electronegativity                      POSITIVE   (mean SHAP: +0.001467)
+X_thermal_conductivity                   NEGATIVE   (mean SHAP: -0.000267)
+X_third_ionization_energy                POSITIVE   (mean SHAP: +0.000881)
+tolerance_factor                         NEGATIVE   (mean SHAP: -0.012010)

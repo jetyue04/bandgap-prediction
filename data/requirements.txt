@@ -1,0 +1,24 @@
+# Requirements for SHAP Analysis of Double Perovskites
+# Based on Wang et al. (2025) - Molecules
+
+# Core scientific computing
+pandas>=1.3.0
+numpy>=1.21.0
+
+# Visualization
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# Machine learning
+scikit-learn>=1.0.0
+xgboost>=1.5.0
+
+# Model interpretability
+shap>=0.40.0
+
+# For reading Excel files
+openpyxl>=3.0.9
+
+# Optional but recommended
+jupyter>=1.0.0
+ipython>=7.0.0
