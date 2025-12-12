@@ -25,13 +25,12 @@ sns.set_palette("husl")
 RANDOM_STATE = 42
 np.random.seed(RANDOM_STATE)
 
-print("=" * 80)
+print("-" * 80)
 print("SHAP Analysis for Formation Energy Prediction")
-print("Implementation based on Wang et al. (2025) - Molecules")
-print("=" * 80)
+print("based on Wang et al. (2025) - Molecules")
+print("-" * 80)
 
 # Load data
-print("\n[STEP 1] Loading data...")
 df = pd.read_excel('dataset_1053.xlsx')
 print(f"Dataset loaded: {df.shape[0]} samples")
 
@@ -64,7 +63,6 @@ print(f"Selected {len(selected_features)} features for formation energy predicti
 print(f"Target range: {y.min():.3f} to {y.max():.3f} eV/atom")
 
 # Normalize
-print("\n[STEP 2] Normalizing with MinMaxScaler...")
 scaler = MinMaxScaler()
 X_scaled = pd.DataFrame(
     scaler.fit_transform(X),
@@ -73,7 +71,6 @@ X_scaled = pd.DataFrame(
 )
 
 # Split data
-print("\n[STEP 3] Splitting data...")
 X_temp, X_test, y_temp, y_test = train_test_split(
     X_scaled, y, test_size=0.15, random_state=RANDOM_STATE
 )
@@ -84,7 +81,6 @@ X_train, X_val, y_train, y_val = train_test_split(
 print(f"Training: {X_train.shape[0]}, Validation: {X_val.shape[0]}, Test: {X_test.shape[0]}")
 
 # Train XGBoost
-print("\n[STEP 4] Training XGBoost model...")
 xgb_params = {
     'learning_rate': 0.1,
     'gamma': 0,
@@ -117,7 +113,6 @@ print(f"  Test RMSE: {test_rmse:.4f} eV/atom")
 print(f"  (Wang et al.: R²=0.959, MAE=0.013, RMSE=0.091)")
 
 # SHAP Analysis
-print("\n[STEP 5] Performing SHAP analysis...")
 explainer = shap.TreeExplainer(model)
 shap_values = explainer.shap_values(X_test)
 shap_explanation = shap.Explanation(
@@ -128,7 +123,6 @@ shap_explanation = shap.Explanation(
 )
 
 # Visualizations
-print("\n[STEP 6] Creating visualizations...")
 
 # Feature importance
 plt.figure(figsize=(10, 8))
@@ -172,7 +166,6 @@ print("  Saved: shap_formation_dependence_top3.png")
 plt.close()
 
 # Save results
-print("\n[STEP 7] Saving results...")
 feature_importance_df = pd.DataFrame({
     'Feature': selected_features,
     'Mean_|SHAP|': np.abs(shap_values).mean(0)
@@ -186,9 +179,9 @@ pd.DataFrame(shap_values, columns=selected_features).to_csv(
 print("  Saved: shap_formation_values.csv")
 
 # Report
-print("\n" + "=" * 80)
+print("\n" + "-" * 80)
 print("Key Findings from SHAP Analysis:")
-print("=" * 80)
+print("-" * 80)
 print("\nTop 5 Most Important Features:")
 for idx, row in feature_importance_df.head(5).iterrows():
     feature = row['Feature']
@@ -205,6 +198,6 @@ print("\n  • B'_electronegativity (χB'):         POSITIVE effect")
 print("  • B''_electronegativity (χB''):        POSITIVE effect")
 print("    → Higher electronegativity → less negative formation energy")
 
-print("\n" + "=" * 80)
+print("\n" + "-" * 80)
 print("Analysis Complete!")
-print("=" * 80)
+print("-" * 80)
