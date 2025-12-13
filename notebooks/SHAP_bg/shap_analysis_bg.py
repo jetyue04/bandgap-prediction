@@ -27,7 +27,7 @@ np.random.seed(RANDOM_STATE)
 
 print("=" * 80)
 print("SHAP ANALYSIS FOR BANDGAP PREDICTION")
-print("Using YOUR preprocessed data (36 features)")
+print("Using preprocessed data (36 features)")
 print("=" * 80)
 
 data = pd.read_csv('x_y_bandgap_normalized.csv')
@@ -56,8 +56,6 @@ print(f"Validation set: {X_val.shape[0]} samples ({X_val.shape[0]/len(X)*100:.2f
 print(f"Test set: {X_test.shape[0]} samples ({X_test.shape[0]/len(X)*100:.2f}%)")
 
 
-print("\n[STEP 3] Training XGBoost model with YOUR hyperparameters...")
-
 model = xgb.XGBRegressor(
     n_estimators=300,
     learning_rate=0.1,
@@ -73,7 +71,6 @@ model = xgb.XGBRegressor(
 )
 
 model.fit(X_train, y_train)
-print("Model training complete!")
 
 y_train_pred = model.predict(X_train)
 y_val_pred = model.predict(X_val)
@@ -111,11 +108,10 @@ print(f"SHAP values calculated for {len(shap_values)} test samples")
 print(f"Expected value (base prediction): {explainer.expected_value:.4f} eV")
 
 # Feature Importance Bar Plot
-print("  5.1 Creating feature importance bar plot...")
 plt.figure(figsize=(12, 10))
 shap.summary_plot(shap_values, X_test, plot_type="bar",
                  feature_names=feature_names, show=False, max_display=20)
-plt.title("SHAP Feature Importance - Bandgap Prediction\n(Your 36 Selected Features)",
+plt.title("SHAP Feature Importance - Bandgap Prediction\n(36 Selected Features)",
          fontsize=14, fontweight='bold', pad=20)
 plt.xlabel("Mean |SHAP value|", fontsize=12)
 plt.tight_layout()
