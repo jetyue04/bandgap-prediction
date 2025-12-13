@@ -95,10 +95,7 @@ xgb_params = {
 }
 
 model = xgb.XGBRegressor(**xgb_params)
-model.fit(X_train, y_train, 
-         eval_set=[(X_val, y_val)],
-         early_stopping_rounds=50,
-         verbose=False)
+model.fit(X_train, y_train)
 
 # Evaluate
 y_test_pred = model.predict(X_test)
@@ -180,24 +177,20 @@ print("  Saved: shap_formation_values.csv")
 
 # Report
 print("\n" + "-" * 80)
-print("Key Findings from SHAP Analysis:")
+print("Key Findings:")
 print("-" * 80)
-print("\nTop 5 Most Important Features:")
+print("\nMost Important Features:")
 for idx, row in feature_importance_df.head(5).iterrows():
     feature = row['Feature']
     feature_idx = selected_features.index(feature)
     mean_shap = shap_values[:, feature_idx].mean()
-    effect = "↑ POSITIVE" if mean_shap > 0 else "↓ NEGATIVE"
+    effect = "+" if mean_shap > 0 else "-"
     print(f"  {row['Feature']:40s} {effect}")
 
 print("\n\nPhysical Interpretation (Wang et al.):")
 print("-" * 80)
 print("  • X_first_ionization_energy (IE1X):  NEGATIVE effect")
-print("    → Higher IE1X means more stable → more negative formation energy")
+print("     Higher IE1X means more stable → more negative formation energy")
 print("\n  • B'_electronegativity (χB'):         POSITIVE effect")
 print("  • B''_electronegativity (χB''):        POSITIVE effect")
-print("    → Higher electronegativity → less negative formation energy")
-
-print("\n" + "-" * 80)
-print("Analysis Complete!")
-print("-" * 80)
+print("     Higher electronegativity → less negative formation energy")
